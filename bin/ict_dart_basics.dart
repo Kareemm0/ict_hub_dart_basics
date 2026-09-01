@@ -1,57 +1,82 @@
-import 'package:args/args.dart';
+void main() {
+  /// DataType variableName  = vale ;
+  int x = 20; // => intger
+  String name = "Kareem"; // => Strings
+  String name2 = 'v'; // => Strings
+  String name3 = '''Kareem'''; // => Strings
+  bool isTrue = true; // false => boolean
+  double price = 20.5; // => double
+  var age = 20; // => var.  , wrong  age = "name";
+  age = 30;
+  var name4 = "kareem";
+  // name4 = 29;
+  // name4 = true;
+  // name4 = "20.5";
+  dynamic z = "kareem";
+  // z = 20;
+  // z = true;
+  // z = [];
+  ///  final vs  const
+  final String finalName = "Kareem";
+  // finalName = "Ahmed"; // => error
+  const String constName = "Kareem";
+  //  constName = "Ahmed"; // => error
 
-const String version = '0.0.1';
+  /// list
+  List names = [
+    "Kareem",
+    "Ahmed",
+    "Ali",
+    21,
+    true,
+    [1, 2, 3],
+  ];
 
-ArgParser buildParser() {
-  return ArgParser()
-    ..addFlag(
-      'help',
-      abbr: 'h',
-      negatable: false,
-      help: 'Print this usage information.',
-    )
-    ..addFlag(
-      'verbose',
-      abbr: 'v',
-      negatable: false,
-      help: 'Show additional command output.',
-    )
-    ..addFlag('version', negatable: false, help: 'Print the tool version.');
-}
+  final List<int> numbers = [1, 2, 3, 4, 5, 19, 56, 65, 3];
+  //numbers = []; // => error
+  // numbers.add(6);
+  // numbers.addAll([7, 8, 9]);
+  //  numbers.remove(1);
+  numbers.sort();
+  // numbers.reverse();
+  //numbers.removeAt(3);
+  print(numbers);
+  const List<int> numbers2 = [1, 2, 3, 4, 5, 19, 56, 65];
+  // => erro
+  // numbers2 = []; // => error
+  // numbers2.add(6); // => error
+  // const DateTime now = DateTime.now(); => Error
+  final DateTime now = DateTime.now(); // => correct
+  //print(now);
 
-void printUsage(ArgParser argParser) {
-  print('Usage: dart ict_dart_basics.dart <flags> [arguments]');
-  print(argParser.usage);
-}
+  Map<String, dynamic> student = {
+    "name": "Kareem",
+    "age": 20,
+    "isStudent": true,
+    "1": true,
+  };
 
-void main(List<String> arguments) {
-  final ArgParser argParser = buildParser();
-  try {
-    final ArgResults results = argParser.parse(arguments);
-    bool verbose = false;
+  List<String> names1 = ["Kareem", "Ahmed", "Ali"];
+  names1.add("Osama");
+  names1.addAll(["Mohamed", "Hassan"]);
+  // names1.remove("Ali");
+  names1.removeAt(3);
+  names1.insert(0, "Ali");
+  names1.insertAll(1, ["Ali", "Osama"]);
+  //names1.clear();
+  int index = names1.indexOf("Mohamed");
+  names1.sort();
+  final String name7 = names1.first;
+  final String name8 = names1.last;
+  final bool isHave = names1.contains("Asmaa");
+  print("isHave is $isHave");
+  print(names1);
+  print("first name is $name7");
+  print("last name is $name8");
+  print("index of Mohamed is $index");
+  print("length of names1 is ${names1.length}");
 
-    // Process the parsed arguments.
-    if (results.flag('help')) {
-      printUsage(argParser);
-      return;
-    }
-    if (results.flag('version')) {
-      print('ict_dart_basics version: $version');
-      return;
-    }
-    if (results.flag('verbose')) {
-      verbose = true;
-    }
-
-    // Act on the arguments provided.
-    print('Positional arguments: ${results.rest}');
-    if (verbose) {
-      print('[VERBOSE] All arguments: ${results.arguments}');
-    }
-  } on FormatException catch (e) {
-    // Print usage information if an invalid argument was provided.
-    print(e.message);
-    print('');
-    printUsage(argParser);
-  }
+  Set<int> names2 = {1, 2, 3, 1};
+  names2.add(4);
+  // print(names2);
 }
