@@ -6,7 +6,6 @@ class Student {
   //Student.withoutAge(this.stduentName);
   void printStudentName() {
     print("$stduentName  $studentAge");
-    print("");
   }
 }
 
