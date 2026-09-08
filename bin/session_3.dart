@@ -1,6 +1,8 @@
 import 'abstraction.dart';
 import 'encapsulation.dart';
 import "inhritance.dart";
+import 'static.dart';
+import 'mixins.dart';
 
 void main() {
   final BanckAccount banckAccount = BanckAccount(1000);
@@ -43,5 +45,22 @@ void main() {
 
   Payment payment = Wallet();
   payment = PayPal();
-  payment = Cridt(); 
+  payment = Cridt();
+  payment = InstaPay();
+  // payment = Mage("" , 100, "");  => wrong example
+
+  Student student = Student();
+  Student student2 = Student();
+  Student student3 = Student();
+
+  // student.count;
+  // Student.count;
+
+  Robot robot = Robot();
+  robot.canTalk();
+}
+
+class InstaPay extends Payment {
+  @override
+  void pay({required String userName}) {}
 }
